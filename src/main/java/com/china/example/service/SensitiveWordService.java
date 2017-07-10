@@ -85,7 +85,7 @@ public class SensitiveWordService {
         }
         text = text.replaceAll("[\r\n]+","");
         int l = text.length();
-        String word = null;
+        String word;
         for(int i = 0;i < l;i++){
             word = sensitiveCache.checkOutSensitiveWord(text,i);
             if(word != null){
