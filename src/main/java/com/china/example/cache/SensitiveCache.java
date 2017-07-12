@@ -36,7 +36,7 @@ public class SensitiveCache {
             key = SENSITIVE_PRE + word.substring(0,i + 1);
             if( i == l -1){
                 redisTemplate.opsForValue().set(key,"true");
-            //该hash不存在或为空puthash
+            //该key不存在或为空puthash
             }else if (!redisTemplate.hasKey(key)){
                 redisTemplate.opsForValue().set(key,"false");
             }
