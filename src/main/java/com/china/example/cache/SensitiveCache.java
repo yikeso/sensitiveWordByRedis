@@ -34,13 +34,11 @@ public class SensitiveCache {
         Map<String,String> value;
         for(int i = 0;i < l;i++){
             key = SENSITIVE_PRE + word.substring(0,i + 1);
+            if( i == l -1){
+                redisTemplate.opsForValue().set(key,"true");
             //该hash不存在或为空puthash
-            if (!redisTemplate.hasKey(key)){
-                if( i == l -1){
-                    redisTemplate.opsForValue().set(key,"true");
-                }else {
-                    redisTemplate.opsForValue().set(key,"false");
-                }
+            }else if (!redisTemplate.hasKey(key)){
+                redisTemplate.opsForValue().set(key,"false");
             }
         }
     }
