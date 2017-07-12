@@ -16,6 +16,7 @@ import javax.annotation.Resource;
  */
 @Configuration
 public class RedisConfig {
+
     /**
      * 注入 RedisConnectionFactory
      */
